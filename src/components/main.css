@@ -26,9 +26,54 @@
 .additems{
     border: 1px solid grey;
     height: 150px;
-    margin-top: 20%;
-    width: 30%;
+    margin-top: 100px;
+    width: 200px;
     background-color: white;
     padding: 10px;
-    
+
+}
+input{
+    width: 98%;
+    height: 25px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid grey;
+}
+.button1{
+float: right;
+background-color: cyan;
+width: 50px;
+border: 1px solid lightgrey;
+outline: none;
+height: 20px;
+border-radius: 2px;
+}
+.button2{
+    background-color: cyan;
+    width: 50px;
+    margin-left: 50px;
+    border: 1px solid lightgrey;
+    outline: none;
+    height: 20px;
+    border-radius: 2px;
+    }
+select{
+width: 98%;
+border: 1px solid whitesmoke;
+outline: none;
+height: 25px;
+border-radius: 2px;
+
+}
+
+
+.newBill{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.newBill>div{
+    border: 1px solid grey;
+    height: 40px;
+    width: 98%;
 }
