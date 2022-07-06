@@ -3,7 +3,11 @@ const initialState={
     Error:false,
     items:[],
     singleItem:{},
-    newBill:[]
+    newBill:[],
+    q:'',
+    s:false,
+    bill_gen:{},
+    b:false
 }
 
 export const productReducer=(state=initialState,action)=>{
@@ -35,11 +39,15 @@ export const productReducer=(state=initialState,action)=>{
                             Error:false
                         } 
                       case 'fetch_Single_Success':
-                        return{
+                      console.log('req in reducer',payload);  
+                      return{
                             ...state,
                             laoding:false,
-                            Error:false,
-                            newBill:[state.newBill,...payload]
+                            newBill:{...state,...payload},
+                            singleItem:payload.payload,
+                            q:payload.q,
+                            s:true,
+                            Error:false
                         }
                       case 'fetch_Single_Failure':
                         return{
@@ -47,7 +55,12 @@ export const productReducer=(state=initialState,action)=>{
                             laoding:false,
                             Error:true
                     
-                        }      
+                        } 
+                        case "bill_gen":
+                            return{
+                                ...state,
+                                bill_gen:{...state,...payload}
+                            }     
             default:
                 return state;
         }

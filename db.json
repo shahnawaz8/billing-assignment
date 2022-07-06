@@ -64,6 +64,12 @@
       "name": "moli",
       "price": 12,
       "id": 13
+    },
+    {
+      "name": "Norma",
+      "price": 123,
+      "id": 14
     }
-  ]
+  ],
+  "bills": []
 }

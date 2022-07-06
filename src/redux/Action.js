@@ -22,10 +22,10 @@ import Axios  from 'axios'
 export const fetchData=(payload)=>(dispatch)=>{
     dispatch(FetchRequest())
     console.log(payload,"fetchdata")
-    Axios.get("http://localhost:8080/items")
+    Axios.get("https://my-json-server-masai.herokuapp.com/items")
     .then((res)=>{
         console.log('res from fetch', res.data);
-        return dispatch(FetchSuccess(res.data))     
+        dispatch(FetchSuccess(res.data))
     })
     .catch((e)=>{
         return dispatch(FetchFailure(e.data))
@@ -50,14 +50,21 @@ const FetchSingleRequest=(payload)=>{
          payload
      }
  }
+
+ export const billgen = (payload)=>{
+    return{
+        type:"bill_gen",
+        payload
+    }
+ }
  
- export const fetchSingleData=(id)=> (dispatch)=>{
+ 
+ export const fetchSingleData=(id,q)=> (dispatch)=>{
      dispatch(FetchSingleRequest())
-     Axios.get(`http://localhost:8080/items/${id}`)
+     Axios.get(`https://my-json-server-masai.herokuapp.com/items/${id}`)
      .then((res)=>{
         console.log('res from fetch', res.data);
-        console.log('res from single Item',res.data); 
-        return dispatch(FetchSingleSuccess(res.data))     
+        return dispatch(FetchSingleSuccess({payload:res.data,q:q}))     
      })
      .catch((e)=>{
          return dispatch(FetchSingleFailure(e.data))
@@ -67,7 +74,7 @@ const FetchSingleRequest=(payload)=>{
 
  export const postdata = (payload)=>(dispatch)=>{
     console.log("payload",payload);
-    Axios.post("http://localhost:8080/items/",payload)
+    Axios.post("https://my-json-server-masai.herokuapp.com/items/",payload)
     .then((res)=>{
         console.log(res);
     })

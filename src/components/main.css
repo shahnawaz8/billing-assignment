@@ -78,11 +78,19 @@ border-radius: 2px;
     border: 1px solid grey;
     height: 40px;
     width: 98%;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+.total{
+    border: 1px solid whitesmoke;
+    align-self: baseline;
 }
 .items>div{
     border: 1px solid grey;
     height: 40px;
     width: 98%;
+    padding: 10px;
+    margin-bottom: 5px;
 }
 .items,.myBill,.sales{
     overflow-y: auto;
