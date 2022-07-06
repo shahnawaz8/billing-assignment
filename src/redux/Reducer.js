@@ -3,6 +3,7 @@ const initialState={
     Error:false,
     items:[],
     singleItem:{},
+    newBill:[]
 }
 
 export const productReducer=(state=initialState,action)=>{
@@ -37,8 +38,8 @@ export const productReducer=(state=initialState,action)=>{
                         return{
                             ...state,
                             laoding:false,
-                            singleItem:payload,
-                            Error:false
+                            Error:false,
+                            newBill:[state.newBill,...payload]
                         }
                       case 'fetch_Single_Failure':
                         return{

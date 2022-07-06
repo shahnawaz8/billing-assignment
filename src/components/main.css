@@ -11,7 +11,7 @@
     border: 1px solid grey;
     margin: 10px;
     padding:10px;
-    height: 400px;
+    height: 450px;
     width: 70%;
     display: grid;
     grid-template-columns: auto auto;
@@ -71,9 +71,20 @@ border-radius: 2px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    height: 200px;
+    overflow: auto;
 }
 .newBill>div{
     border: 1px solid grey;
     height: 40px;
     width: 98%;
+}
+.items>div{
+    border: 1px solid grey;
+    height: 40px;
+    width: 98%;
+}
+.items,.myBill,.sales{
+    overflow-y: auto;
+    height: 200px;
 }

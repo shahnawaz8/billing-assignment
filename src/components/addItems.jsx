@@ -4,7 +4,7 @@ import { fetchData, postdata } from "../redux/Action";
 
 export const AddItem = ()=>{
     const [name,setName] = useState("");
-    const [price,setPrice] = useState(Number);
+    const [price,setPrice] = useState("");
     const dispatch = useDispatch();
 
     const handleADD = ()=>{

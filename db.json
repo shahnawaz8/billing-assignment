@@ -54,6 +54,16 @@
       "name": "234",
       "price": 0,
       "id": 11
+    },
+    {
+      "name": "Book",
+      "price": 200,
+      "id": 12
+    },
+    {
+      "name": "moli",
+      "price": 12,
+      "id": 13
     }
   ]
 }

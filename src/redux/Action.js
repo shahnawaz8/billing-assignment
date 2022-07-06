@@ -56,7 +56,8 @@ const FetchSingleRequest=(payload)=>{
      Axios.get(`http://localhost:8080/items/${id}`)
      .then((res)=>{
         console.log('res from fetch', res.data);
-         return dispatch(FetchSingleSuccess(res.data))     
+        console.log('res from single Item',res.data); 
+        return dispatch(FetchSingleSuccess(res.data))     
      })
      .catch((e)=>{
          return dispatch(FetchSingleFailure(e.data))
