@@ -2,32 +2,29 @@ import Axios  from 'axios'
 
  const FetchRequest=(payload)=>{
    return{
-  type:fetch_Request,
+  type:'fetch_Request',
   payload
    }
 }
  const FetchSuccess=(payload)=>{
     return{
-        type:fetch_Success,
+        type:'fetch_Success',
         payload
     }
 }
  const FetchFailure=(payload)=>{
     return{
-        type:fetch_Failure,
+        type:'fetch_Failure',
         payload
     }
 }
 
 export const fetchData=(payload)=>(dispatch)=>{
-    dispatch(FetchDelhiRequest())
+    dispatch(FetchRequest())
     console.log(payload,"fetchdata")
-    Axios.get("http://localhost:8080/items",{
-       params:{
-           ...payload,  
-       }
-    })
+    Axios.get("http://localhost:8080/items")
     .then((res)=>{
+        console.log('res from fetch', res.data);
         return dispatch(FetchSuccess(res.data))     
     })
     .catch((e)=>{
@@ -37,19 +34,19 @@ export const fetchData=(payload)=>(dispatch)=>{
 
 const FetchSingleRequest=(payload)=>{
     return{
-   type:fetch_Single_Request,
+   type:'fetch_Single_Request',
    payload
     }
  }
   const FetchSingleSuccess=(payload)=>{
      return{
-         type:fetch_Single_Success,
+         type:'fetch_Single_Success',
          payload
      }
  }
   const FetchSingleFailure=(payload)=>{
      return{
-         type:fetch_Single_Failure,
+         type:'fetch_Single_Failure',
          payload
      }
  }
@@ -58,9 +55,22 @@ const FetchSingleRequest=(payload)=>{
      dispatch(FetchSingleRequest())
      Axios.get(`http://localhost:8080/items/${id}`)
      .then((res)=>{
+        console.log('res from fetch', res.data);
          return dispatch(FetchSingleSuccess(res.data))     
      })
      .catch((e)=>{
          return dispatch(FetchSingleFailure(e.data))
      })
+ }
+
+
+ export const postdata = (payload)=>(dispatch)=>{
+    console.log("payload",payload);
+    Axios.post("http://localhost:8080/items/",payload)
+    .then((res)=>{
+        console.log(res);
+    })
+    .catch((err)=>{
+        console.log(err.message);
+    })
  }

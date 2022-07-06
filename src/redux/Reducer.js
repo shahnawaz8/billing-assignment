@@ -1,9 +1,8 @@
 const initialState={
     laoding:false,
     Error:false,
-    
-    products:[],
-    currentProduct:{},
+    items:[],
+    singleItem:{},
 }
 
 export const productReducer=(state=initialState,action)=>{
@@ -19,7 +18,7 @@ export const productReducer=(state=initialState,action)=>{
             return{
                 ...state,
                 laoding:false,
-                products:payload,
+                items:payload,
                 Error:false
             }
         case 'fetch_Failure':
@@ -38,7 +37,7 @@ export const productReducer=(state=initialState,action)=>{
                         return{
                             ...state,
                             laoding:false,
-                            currentProduct:payload,
+                            singleItem:payload,
                             Error:false
                         }
                       case 'fetch_Single_Failure':
